@@ -29,7 +29,7 @@ mongoose.connect(`mongodb+srv://${db_user}:${db_password}@${db_host}/${db_name}?
 	// next();
 })
 .catch(err=> {
-	console.error(err);
+	console.error("DB Connection ERROR>>> ", err);
 });
 
 
@@ -46,8 +46,8 @@ app.use('/api/auth', auth);
 app.use('/api/day2day', day2day);
 app.use(error);
 
+const PORT = process.env.PORT || 8080;
 
-
-app.listen(8080,function(){
+app.listen(PORT,function(){
     console.log('Express app start on port.. 8080')
 });
