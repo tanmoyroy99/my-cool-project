@@ -1,9 +1,10 @@
 require('express-async-errors');
-require('dotenv').config()
+require('dotenv').config();
 const winston = require('winston');
 const error = require('./middleware/error');
 var express = require("express");
 var app = express();
+const cors = require('cors');
 const genres = require('./routes/genres');
 const users = require('./routes/users');
 const auth = require('./routes/auth');
@@ -38,6 +39,8 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
+app.use(cors());
 
 app.use(express.json());
 app.use('/api/genres',  genres);
