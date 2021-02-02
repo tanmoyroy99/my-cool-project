@@ -26,8 +26,9 @@ const uschema = new mongoose.Schema({
   }, 
 });
 
-uschema.methods.generateAuthToken = function() { 
-  const token = jwt.sign({ _id: this._id, emailId:this.emailId, phoneNo : this.phoneNo  }, 'data_jwtPrivateKey', { expiresIn: '5h' });
+uschema.methods.generateAuthToken = function() {
+  const jwtPrivatKey = process.env.JWT_TOKEN;
+  const token = jwt.sign({ _id: this._id, emailId:this.emailId, phoneNo : this.phoneNo  }, jwtPrivatKey, { expiresIn: '5h' });
   return token;
 }
 
