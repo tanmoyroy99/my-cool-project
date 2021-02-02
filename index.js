@@ -23,6 +23,7 @@ const db_name     = process.env.MONGO_DB;
 const db_host     = process.env.MONGO_DB_HOST;
 // lkW70PMatMHFmK7e
 // mongoose.connect('mongodb://tanmoy:tanmoy@127.0.0.1:27017/dressbook')
+console.log('>>>>>>>',`mongodb+srv://${db_user}:${db_password}@${db_host}/${db_name}?retryWrites=true&w=majority`)
 mongoose.connect(`mongodb+srv://${db_user}:${db_password}@${db_host}/${db_name}?retryWrites=true&w=majority`)
 .then(()=> {console.log('DB connected...');
 	// next();
