@@ -1,0 +1,14 @@
+node_modules
+build
+examples
+package-lock.json
+log
+#log
+data
+.env
+.env
+!.env
+.env/
+# macOS Files
+.DS_Store
+.env

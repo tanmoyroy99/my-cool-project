@@ -1,4 +1,5 @@
 require('express-async-errors');
+require('dotenv').config()
 const winston = require('winston');
 const error = require('./middleware/error');
 var express = require("express");
@@ -16,11 +17,15 @@ process.on('uncaughtException', (ex) => {
 
 winston.add(winston.transports.File, { filename: 'logfile.log' }); 
 
-
-
-mongoose.connect('mongodb://tanmoy:tanmoy@127.0.0.1:27017/dressbook')
+const db_user     = process.env.MONGO_DB_USER;
+const db_password = process.env.MONGO_DB_PASSWORD;
+const db_name     = process.env.MONGO_DB;
+const db_host     = process.env.MONGO_DB_HOST;
+// lkW70PMatMHFmK7e
+// mongoose.connect('mongodb://tanmoy:tanmoy@127.0.0.1:27017/dressbook')
+mongoose.connect(`mongodb+srv://${db_user}:${db_password}@${db_host}/${db_name}?retryWrites=true&w=majority`)
 .then(()=> {console.log('DB connected...');
-	next();
+	// next();
 })
 .catch(err=> {
 	console.error(err);
