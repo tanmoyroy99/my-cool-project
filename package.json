@@ -20,7 +20,7 @@
     "forever": "^0.15.3",
     "joi": "^13.6.0",
     "joi-password-complexity": "^2.0.1",
-    "jsonwebtoken": "^8.3.0",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.2.12",
     "pm2": "^3.2.2",
     "winston": "^2.4.0"
